@@ -17,7 +17,7 @@ var quizdata = [
     correct : 'a'
    },
    {
-    question : 'HTML stands for Hypertext Markup Language',
+    question : 'HTML stands for?',
     a:'Hyper Language',
     b:'Hypertext Markup Language',
     c:'Hypertext Language',
@@ -36,7 +36,7 @@ var quizdata = [
 ]
 
 var quiz = document.getElementById('quiz')
-var answer = document.querySelectorAll('answer')
+var answer = document.querySelectorAll('.answer')
 var question = document.getElementById('question')
 var option_a=document.getElementById('a_value')
 var option_b=document.getElementById('b_value')
@@ -76,7 +76,7 @@ submitbtn.addEventListener('click' , ()=>{
 
        if(answer.checked)
        {
-            selectedoption=answer
+            selectedoption=answer.id   
        }      
     
     })
@@ -86,6 +86,13 @@ submitbtn.addEventListener('click' , ()=>{
         quizScore=quizScore+1
     }
     currentQuestion=currentQuestion+1
-    loadQuiz()
+    
+    if(currentQuestion==quizdata.length)
+    {
+          document.getElementById('quizdiv').innerHTML = `<h1>You have answered ${quizScore} correctly out of ${quizdata.length} questions</h1>`
+
+    }else{
+        loadQuiz()
+    }
 
 })
