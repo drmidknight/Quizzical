@@ -67,3 +67,25 @@ function deselect()
 {
     answer.forEach(answer=>answer.checked=false)
 }
+
+submitbtn.addEventListener('click' , ()=>{
+
+      var selectedoption;
+
+      answer.forEach(answer=>{
+
+       if(answer.checked)
+       {
+            selectedoption=answer
+       }      
+    
+    })
+
+    if(selectedoption==quizdata[currentQuestion].correct)
+    {
+        quizScore=quizScore+1
+    }
+    currentQuestion=currentQuestion+1
+    loadQuiz()
+
+})
